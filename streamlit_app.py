@@ -12,19 +12,19 @@ def main():
         date = st.date_input("1a. Date")
         
         # 1b. Current Weight
-        current_weight = st.number_input("1b. Current Weight (lbs)", min_value=0.0, step=0.1)
+        current_weight = st.number_input("1b. Current Weight (lbs)", min_value=0, step=1)
 
         # 1c. Previous Weight
-        previous_weight = st.number_input("1c. Previous Weight (lbs)", min_value=0.0, step=0.1)
+        previous_weight = st.number_input("1c. Previous Weight (lbs)", min_value=0, step=1)
 
         # 1d. Waist Relaxed
-        waist_relaxed = st.number_input("1d. Waist Relaxed (cm)", min_value=0.0, step=0.1)
+        waist_relaxed = st.number_input("1d. Waist Relaxed (cm)", min_value=0, step=1)
         
         # 1e. Waist Flexed
-        waist_flexed = st.number_input("1e. Waist Flexed (cm)", min_value=0.0, step=0.1)
+        waist_flexed = st.number_input("1e. Waist Flexed (cm)", min_value=0, step=1)
         
         # 1f. Bicep Flexed
-        bicep_flexed = st.number_input("1f. Bicep Flexed (cm)", min_value=0.0, step=0.1)
+        bicep_flexed = st.number_input("1f. Bicep Flexed (cm)", min_value=0, step=1)
         
         st.write("Question 2:")
         
