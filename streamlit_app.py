@@ -2,7 +2,7 @@ import streamlit as st
 
 # Main function to run the Streamlit app
 def main():
-    st.title("BPF Weekly Check-In Form")
+    st.title("Weekly Check-In Form")
 
     # Create the form
     with st.form(key='health_metrics_form'):
@@ -12,19 +12,19 @@ def main():
         date = st.date_input("1a. Date")
         
         # 1b. Current Weight
-        current_weight = st.number_input("1b. Current Weight (lbs)", min_value=0, step=1)
+        current_weight = st.number_input("1b. Current Weight (lbs)", min_value=0.0, step=0.1)
 
         # 1c. Previous Weight
-        previous_weight = st.number_input("1c. Previous Weight (lbs)", min_value=0, step=1)
+        previous_weight = st.number_input("1c. Previous Weight (lbs)", min_value=0.0, step=0.1)
 
         # 1d. Waist Relaxed
-        waist_relaxed = st.number_input("1d. Waist Relaxed (cm)", min_value=0, step=1)
+        waist_relaxed = st.number_input("1d. Waist Relaxed (cm)", min_value=0.0, step=0.1)
         
         # 1e. Waist Flexed
-        waist_flexed = st.number_input("1e. Waist Flexed (cm)", min_value=0, step=1)
+        waist_flexed = st.number_input("1e. Waist Flexed (cm)", min_value=0.0, step=0.1)
         
         # 1f. Bicep Flexed
-        bicep_flexed = st.number_input("1f. Bicep Flexed (cm)", min_value=0, step=1)
+        bicep_flexed = st.number_input("1f. Bicep Flexed (cm)", min_value=0.0, step=0.1)
         
         st.write("Question 2:")
         
@@ -54,6 +54,11 @@ def main():
         # 3f. Actual Fats
         actual_fats = st.number_input("3f. Actual Fats (g)", min_value=0, step=1)
         
+        st.write("Question 4:")
+        
+        # 4a. Upload Image
+        uploaded_image = st.file_uploader("4a. Upload Image", type=["jpg", "jpeg", "png"])
+        
         # Submit button
         submit_button = st.form_submit_button(label='Submit')
     
@@ -74,6 +79,9 @@ def main():
         st.write(f"**Actual Protein:** {actual_protein} g")
         st.write(f"**Actual Carbs:** {actual_carbs} g")
         st.write(f"**Actual Fats:** {actual_fats} g")
+        
+        if uploaded_image is not None:
+            st.image(uploaded_image, caption='Uploaded Image', use_column_width=True)
 
 if __name__ == "__main__":
     main()
