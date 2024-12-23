@@ -18,13 +18,13 @@ def main():
         previous_weight = st.number_input("1c. Previous Weight (lbs)", min_value=0, step=1)
 
         # 1d. Waist Relaxed
-        waist_relaxed = st.number_input("1d. Waist Relaxed (cm)", min_value=0, step=1)
+        waist_relaxed = st.number_input("1d. Waist Relaxed (in)", min_value=0, step=1)
         
         # 1e. Waist Flexed
-        waist_flexed = st.number_input("1e. Waist Flexed (cm)", min_value=0, step=1)
+        waist_flexed = st.number_input("1e. Waist Flexed (in)", min_value=0, step=1)
         
         # 1f. Bicep Flexed
-        bicep_flexed = st.number_input("1f. Bicep Flexed (cm)", min_value=0, step=1)
+        bicep_flexed = st.number_input("1f. Bicep Flexed (in)", min_value=0, step=1)
         
         st.write("Question 2:")
         
@@ -68,9 +68,9 @@ def main():
         st.write(f"**Date:** {date}")
         st.write(f"**Current Weight:** {current_weight} lbs")
         st.write(f"**Previous Weight:** {previous_weight} lbs")
-        st.write(f"**Waist Relaxed:** {waist_relaxed} cm")
-        st.write(f"**Waist Flexed:** {waist_flexed} cm")
-        st.write(f"**Bicep Flexed:** {bicep_flexed} cm")
+        st.write(f"**Waist Relaxed:** {waist_relaxed} in")
+        st.write(f"**Waist Flexed:** {waist_flexed} in")
+        st.write(f"**Bicep Flexed:** {bicep_flexed} in")
         st.write(f"**Target Calories:** {target_calories}")
         st.write(f"**Actual Calories:** {actual_calories}")
         st.write(f"**Target Protein:** {target_protein} g")
