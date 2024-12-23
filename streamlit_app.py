@@ -14,8 +14,7 @@ def main():
         
         # Question 2: Cardio sessions details
         cardio_sessions = st.text_area(
-            "How many cardio sessions did you do, what kind, duration, and speed level?",
-            placeholder="e.g., 5 total: 4 stairs, 20 mins, lvl 6 the first 10 mins and lvl 5 the last 10 mins, and 2 mile walk around my neighborhood",
+            "How many cardio sessions did you do, what kind and duration and speed level? Put the cardio type,(Ex: stairs, incline treadmill, jump rope) length of time you did each workout and the speed level: Final Product should look like this (Ex: 5 total: 4 stairs, 20 mins, lvl 6 the first 10 mins and lvl 5 the last 10 mins, and 2 mile walk around my neighborhood )",
             key="cardio_sessions"
         )
         
