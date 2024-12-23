@@ -34,77 +34,68 @@ def main():
         
         # Question 6: Macros from the Weekly View (Protein/Carbs/Fats)
         macros_weekly = st.text_input(
-            "Macros from the Weekly View (Protein/Carbs/Fats) and what your target was supposed to be.",
-            placeholder="Please write it like this Target (pro 200/carbs 130/fats 100) Actual (pro 199/carbs 129/fats 120)",
+            "Macros from the Weekly View (Protein/Carbs/Fats) and what your target was supposed to be. Please write it like this (Target pro 200/carbs 130/fats 100 / Actual pro 199/carbs 129/fats 120)",
             key="macros_weekly"
         )
         
         # Question 7: Weekly Calories
         weekly_calories = st.text_input(
-            "Avg Weekly Calories.",
-            placeholder="Please write it like this (Target calories: 2350 / Actual calories: 2442)",
+            "Avg Weekly Calories. Please write it like this (Target calories: 2350 / Actual calories: 2442)",
             key="weekly_calories"
         )
         
-        # Question 8: Anything you struggled with this week?
-        struggles = st.text_area(
-            "Anything you struggled with this week?",
-            key="struggles"
-        )
-        
-        # Question 9: Waist and Bicep Measurements
+        # Question 8: Waist and Bicep Measurements
         waist_bicep_measurements = st.text_input(
             "Waist Relaxed/Flexed Measurements. Bicep Flexed Measurements.",
-            placeholder="e.g., Waist Relaxed 28in/Flexed 27in/Bicep Flexed 13in",
             key="waist_bicep_measurements"
         )
         
-        # Question 10: Anything you want to discuss with coach
+        # Question 9: Anything you want to discuss with coach
         discuss_with_coach = st.text_area(
             "Is there anything you want to bring up or discuss with me right away?",
             key="discuss_with_coach"
         )
         
-        # Question 11: Compliance to Meal Plan
+        # Question 10: Compliance to Meal Plan
         compliance = st.slider(
             "On a scale of 1-10, what was the level of your compliance to the meal plan/macros last week? 10 means perfect adherence",
             min_value=1, max_value=10, key="compliance"
         )
         
-        # Question 12: Subtle Improvement
+        # Question 11: Subtle Improvement
         subtle_improvement = st.text_area("What is a subtle improvement you have found on your body that you're proud of?", key="subtle_improvement")
         
-        # Question 13: Missed workouts
+        # Question 12: Missed workouts
         missed_workouts = st.text_area("Did you miss any workouts last week? If so, how many, what body part days, and why?", key="missed_workouts")
         
-        # Question 14: Proud moments
+        # Question 13: Proud moments
         proud_moments = st.text_area("Tell me something you're PROUD that you did this week! And your biggest win, both fitness and a non-fitness aspect of your life win.", key="proud_moments")
         
-        # Question 15: Improvement Goal
+        # Question 14: Improvement Goal
         improvement_goal = st.text_area("What is something you want to improve on this week?", key="improvement_goal")
         
-        # Question 16: Hunger Level
+        # Question 15: Hunger Level
         hunger_level = st.slider("On a scale of 1-10, what was your hunger level this week? 10 being starving, 1 meaning you could have easily fasted.", min_value=1, max_value=10, key="hunger_level")
         
-        # Question 17: Water Intake
+        # Question 16: Water Intake
         water_intake = st.text_input("How much water did you drink this week on average each day? Always aim for a gallon BARE MINIMUM. Optimal would be 1.5-2 gals and curbs hunger and helps your body metabolize fat.", key="water_intake")
         
-        # Question 18: Sleep hours
+        # Question 17: Sleep hours
         sleep_hours = st.text_input("How many hours of sleep did you get per night this week on average?", key="sleep_hours")
         
-        # Question 19: Previous and Current Weight
+        # Question 18: Previous and Current Weight
         weight = st.text_input("What was your previous and current weight this week?", key="weight")
         
-        # Question 20: Goal and Accomplishment
+        # Question 19: Goal and Accomplishment
         goal_accomplishment = st.text_area("What was your goal last week and did you accomplish it?", key="goal_accomplishment")
         
-        # Question 21: Goal and Game Plan for This Week
+        # Question 20: Goal and Game Plan for This Week
         weekly_goal_game_plan = st.text_area("What is your goal this week and what is your game plan to accomplish it? Be specific with actionable targets to hit that I'll be holding you accountable to.", key="weekly_goal_game_plan")
         
-        # Question 22: How can coach serve you better
+        # Question 21: How can coach serve you better
         coach_feedback = st.text_area("Is there anything I can do as your coach to serve you better? Please put the date below as well!", key="coach_feedback")
         
-        # Question 23: Upload Image
+        # Question 22: Upload Image
         uploaded_image = st.file_uploader("Weekly Check-In Images", type=["jpg", "jpeg", "png"], key="uploaded_image")
         
         # Submit button
@@ -123,7 +114,6 @@ def main():
             "Name": full_name,
             "Macros (Weekly View)": macros_weekly,
             "Weekly Calories": weekly_calories,
-            "Struggles": struggles,
             "Waist/Bicep Measurements": waist_bicep_measurements,
             "Discussion with Coach": discuss_with_coach,
             "Compliance to Meal Plan": compliance,
