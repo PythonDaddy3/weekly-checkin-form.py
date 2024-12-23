@@ -1,85 +1,142 @@
 import streamlit as st
 
-# Main function to run the Streamlit app
 def main():
     st.title("Weekly Check-In Form")
+    st.write("""
+    Please fill out the form with all the requested information.
+    """)
 
-    # Create the form
-    with st.form(key='health_metrics_form'):
-        st.write("Question 1:")
+    # Form Container
+    with st.form(key='fitness_form'):
         
-        # 1a. Date
-        date = st.date_input("1a. Date")
+        # Question 1: Email
+        email = st.text_input("Email", key="email", help="Please provide your email address.")
         
-        # 1b. Current Weight
-        current_weight = st.number_input("1b. Current Weight (lbs)", min_value=0, step=1)
-
-        # 1c. Previous Weight
-        previous_weight = st.number_input("1c. Previous Weight (lbs)", min_value=0, step=1)
-
-        # 1d. Waist Relaxed
-        waist_relaxed = st.number_input("1d. Waist Relaxed (in)", min_value=0, step=1)
+        # Question 2: Cardio sessions details
+        cardio_sessions = st.text_area(
+            "How many cardio sessions did you do, what kind, duration, and speed level?",
+            placeholder="e.g., 5 total: 4 stairs, 20 mins, lvl 6 the first 10 mins and lvl 5 the last 10 mins, and 2 mile walk around my neighborhood",
+            key="cardio_sessions"
+        )
         
-        # 1e. Waist Flexed
-        waist_flexed = st.number_input("1e. Waist Flexed (in)", min_value=0, step=1)
+        # Question 3: Average daily steps
+        daily_steps = st.text_input("Average daily steps?", key="daily_steps", help="Found in the Health app if you have an iPhone.")
         
-        # 1f. Bicep Flexed
-        bicep_flexed = st.number_input("1f. Bicep Flexed (in)", min_value=0, step=1)
+        # Question 4: Exercise you hate or want removed / Macro changes
+        exercise_hate_or_macro = st.text_area(
+            "Any exercise you hate and want it removed? And why? OR what macro do you feel you want more of?",
+            placeholder="Please explain both why you hate the exercise and/or why you want more of a specific macro.",
+            key="exercise_hate_or_macro"
+        )
         
-        st.write("Question 2:")
+        # Question 5: First/Last Name
+        full_name = st.text_input("What is your first/last name?", key="full_name")
         
-        # 2a. Target Calories
-        target_calories = st.number_input("2a. Target Calories", min_value=0, step=1)
+        # Question 6: Macros from the Weekly View (Protein/Carbs/Fats)
+        macros_weekly = st.text_input(
+            "Macros from the Weekly View (Protein/Carbs/Fats) and what your target was supposed to be.",
+            placeholder="Target (pro 200/carbs 130/fats 100) Actual (pro 199/carbs 129/fats 120)",
+            key="macros_weekly"
+        )
         
-        # 2b. Actual Calories
-        actual_calories = st.number_input("2b. Actual Calories", min_value=0, step=1)
+        # Question 7: Weekly Calories
+        weekly_calories = st.text_input(
+            "Avg Weekly Calories. Please write it like this (Target calories: 2350 / Actual calories: 2442)",
+            key="weekly_calories"
+        )
         
-        st.write("Question 3:")
+        # Question 8: Waist and Bicep Measurements
+        waist_bicep_measurements = st.text_input(
+            "Waist Relaxed/Flexed Measurements. Bicep Flexed Measurements.",
+            placeholder="e.g., Waist: 32/30, Bicep: 12/13",
+            key="waist_bicep_measurements"
+        )
         
-        # 3a. Target Protein
-        target_protein = st.number_input("3a. Target Protein (g)", min_value=0, step=1)
+        # Question 9: Anything you want to discuss with coach
+        discuss_with_coach = st.text_area(
+            "Is there anything you want to bring up or discuss with me right away?",
+            key="discuss_with_coach"
+        )
         
-        # 3b. Target Carbs
-        target_carbs = st.number_input("3b. Target Carbs (g)", min_value=0, step=1)
+        # Question 10: Compliance to Meal Plan
+        compliance = st.slider(
+            "On a scale of 1-10, what was the level of your compliance to the meal plan/macros last week?",
+            min_value=1, max_value=10, key="compliance"
+        )
         
-        # 3c. Target Fats
-        target_fats = st.number_input("3c. Target Fats (g)", min_value=0, step=1)
+        # Question 11: Subtle Improvement
+        subtle_improvement = st.text_area("What is a subtle improvement you have found on your body that you’re proud of?", key="subtle_improvement")
         
-        # 3d. Actual Protein
-        actual_protein = st.number_input("3d. Actual Protein (g)", min_value=0, step=1)
+        # Question 12: Missed workouts
+        missed_workouts = st.text_area("Did you miss any workouts last week? If so, how many, what body part days, and why?", key="missed_workouts")
         
-        # 3e. Actual Carbs
-        actual_carbs = st.number_input("3e. Actual Carbs (g)", min_value=0, step=1)
+        # Question 13: Proud moments
+        proud_moments = st.text_area("Tell me something you're PROUD that you did this week! And your biggest win, both fitness and a non-fitness aspect of your life win.", key="proud_moments")
         
-        # 3f. Actual Fats
-        actual_fats = st.number_input("3f. Actual Fats (g)", min_value=0, step=1)
+        # Question 14: Improvement Goal
+        improvement_goal = st.text_area("What is something you want to improve on this week?", key="improvement_goal")
         
-        st.write("Question 4:")
+        # Question 15: Hunger Level
+        hunger_level = st.slider("On a scale of 1-10, what was your hunger level this week? 10 being starving, 1 meaning you could have easily fasted.", min_value=1, max_value=10, key="hunger_level")
         
-        # 4a. Upload Image
-        uploaded_image = st.file_uploader("4a. Weekly Check In Pictures", type=["jpg", "jpeg", "png"])
+        # Question 16: Water Intake
+        water_intake = st.text_input("How much water did you drink this week on average each day?", key="water_intake")
+        
+        # Question 17: Sleep hours
+        sleep_hours = st.text_input("How many hours of sleep did you get per night this week on average?", key="sleep_hours")
+        
+        # Question 18: Previous and Current Weight
+        weight = st.text_input("What was your previous and current weight this week?", key="weight")
+        
+        # Question 19: Goal and Accomplishment
+        goal_accomplishment = st.text_area("What was your goal last week and did you accomplish it?", key="goal_accomplishment")
+        
+        # Question 20: Goal and Game Plan for This Week
+        weekly_goal_game_plan = st.text_area("What is your goal this week and what is your game plan to accomplish it? Be specific with actionable targets to hit that I'll be holding you accountable to.", key="weekly_goal_game_plan")
+        
+        # Question 21: How can coach serve you better
+        coach_feedback = st.text_area("Is there anything I can do as your coach to serve you better? Please put the date below as well!", key="coach_feedback")
+        
+        # Question 22: Upload Image
+        uploaded_image = st.file_uploader("Upload Image (optional)", type=["jpg", "jpeg", "png"], key="uploaded_image")
         
         # Submit button
-        submit_button = st.form_submit_button(label='Submit')
-    
-    # Display the input data
+        submit_button = st.form_submit_button("Submit")
+
+    # Form submission
     if submit_button:
-        st.write("### Submitted Data")
-        st.write(f"**Date:** {date}")
-        st.write(f"**Current Weight:** {current_weight} lbs")
-        st.write(f"**Previous Weight:** {previous_weight} lbs")
-        st.write(f"**Waist Relaxed:** {waist_relaxed} in")
-        st.write(f"**Waist Flexed:** {waist_flexed} in")
-        st.write(f"**Bicep Flexed:** {bicep_flexed} in")
-        st.write(f"**Target Calories:** {target_calories}")
-        st.write(f"**Actual Calories:** {actual_calories}")
-        st.write(f"**Target Protein:** {target_protein} g")
-        st.write(f"**Target Carbs:** {target_carbs} g")
-        st.write(f"**Target Fats:** {target_fats} g")
-        st.write(f"**Actual Protein:** {actual_protein} g")
-        st.write(f"**Actual Carbs:** {actual_carbs} g")
-        st.write(f"**Actual Fats:** {actual_fats} g")
+        st.write("### Form Submitted!")
         
+        # Display all the collected responses
+        form_data = {
+            "Email": email,
+            "Cardio Sessions": cardio_sessions,
+            "Average Daily Steps": daily_steps,
+            "Exercise Hate/Macro Preference": exercise_hate_or_macro,
+            "Name": full_name,
+            "Macros (Weekly View)": macros_weekly,
+            "Weekly Calories": weekly_calories,
+            "Waist/Bicep Measurements": waist_bicep_measurements,
+            "Discussion with Coach": discuss_with_coach,
+            "Compliance to Meal Plan": compliance,
+            "Subtle Improvement": subtle_improvement,
+            "Missed Workouts": missed_workouts,
+            "Proud Moments": proud_moments,
+            "Improvement Goal": improvement_goal,
+            "Hunger Level": hunger_level,
+            "Water Intake": water_intake,
+            "Sleep Hours": sleep_hours,
+            "Weight": weight,
+            "Goal Accomplishment": goal_accomplishment,
+            "Weekly Goal & Game Plan": weekly_goal_game_plan,
+            "Coach Feedback": coach_feedback
+        }
+        
+        # Display the responses for the user to review (or store them somewhere)
+        for key, value in form_data.items():
+            st.write(f"**{key}:** {value}")
+        
+        # Display the uploaded image if there is one
         if uploaded_image is not None:
             st.image(uploaded_image, caption='Uploaded Image', use_column_width=True)
 
