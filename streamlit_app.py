@@ -57,7 +57,7 @@ def main():
         st.write("Question 4:")
         
         # 4a. Upload Image
-        uploaded_image = st.file_uploader("4a. Upload Image", type=["jpg", "jpeg", "png"])
+        uploaded_image = st.file_uploader("4a. Weekly Check In Pictures", type=["jpg", "jpeg", "png"])
         
         # Submit button
         submit_button = st.form_submit_button(label='Submit')
